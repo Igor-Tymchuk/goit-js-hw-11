@@ -1,26 +1,13 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import * as api from "./js/pixabay-api.js";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-const key = "45921559-66c2b9b15ee0f1bc0f2b1e46c";
-const options = {
-    key: key,
-    q: null,
-    image_type: "photo",
-    orientation: "horizontal",
-    safesearch: true,
-}
+api.form.addEventListener('submit', api.handleForm);
 
-const form = document.querySelector('.searchImg');
-const handleForm = event => {
-    event.preventDefault();
-    const searchText = event.currentTarget.elements.searchText.value;
-    if(!searchText) return iziToast.warning({
-        message: "Input is empty!",
-        position: "topRight",
-    });
-    options.q = searchText;
-    fetch('https://pixabay.com/api/', options);
-    
-}
-form.addEventListener('submit', handleForm)
-
+const gallery = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+});
+gallery.on('show.simplelightbox');
