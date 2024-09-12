@@ -58,20 +58,35 @@
   width: 360px;
   height: 200px;
   border: 1px solid #808080;
+  overflow: hidden;
+  transition: border 300ms ease;
 }
+.card:hover .informations {
+  background-color: #ffffff;
+}
+.card:hover {
+border: 1px solid black;
+
+}
+.card:hover .image {
+  transform: scale(1.1);
+}
+
 .image {
   width: 360px;
   height: 200px;
-  object-fit: cover;
+  object-fit: cover;  
+  transition: transform 300ms ease;
 }
 .informations {
   bottom: 0;
   position: absolute;
-  background-color: #ffffffaa;
+  background-color: #ffffff77;
   height: 48px;
   width: 100%;
   display: flex;
   justify-content: space-around;
+  transition: background-color 300ms ease;
 }
 .current-info {
   display: flex;
