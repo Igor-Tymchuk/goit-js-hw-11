@@ -25,7 +25,7 @@ const iziError = () => iziToast.show({
     messageColor: "#fff",
     theme: "dark",
     maxWidth: "350px",
-    iconUrl: "/img/x.svg"
+    icon: "ico-error",
 });
 
 form.addEventListener('submit', handleForm);
